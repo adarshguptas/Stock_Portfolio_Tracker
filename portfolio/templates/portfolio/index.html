@@ -1,0 +1,209 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Stock Portfolio Tracker</title>
+
+    <link rel="stylesheet" href="{% static 'portfolio/css/style.css' %}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="header">
+            <div>
+                <p class="small-title">INVESTMENT TOOL</p>
+                <h1>Stock Portfolio Tracker</h1>
+                <p class="subtitle">
+                    Calculate your total stock investment instantly
+                </p>
+            </div>
+
+            <div class="stock-icon">
+                📈
+            </div>
+        </div>
+
+
+        <div class="main-grid">
+
+            <!-- Calculator -->
+
+            <div class="card calculator-card">
+
+                <h2>Calculate Investment</h2>
+
+                <p class="description">
+                    Enter the stock name and quantity you want to purchase
+                </p>
+
+                <form method="POST">
+
+                    {% csrf_token %}
+
+                    <label for="stock_name">
+                        Stock Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="stock_name"
+                        name="stock_name"
+                        placeholder="Example: TCS"
+                        autocomplete="off"
+                        required
+                    >
+
+
+                    <label for="quantity">
+                        Quantity
+                    </label>
+
+                    <input
+                        type="number"
+                        id="quantity"
+                        name="quantity"
+                        placeholder="Enter quantity"
+                        min="1"
+                        required
+                    >
+
+
+                    <button type="submit">
+                        Calculate Investment
+                    </button>
+
+                </form>
+
+
+                {% if error %}
+
+                <div class="error-box">
+                    {{ error }}
+                </div>
+
+                {% endif %}
+
+
+                {% if result %}
+
+                <div class="result-box">
+
+                    <div class="result-title">
+                        Investment Summary
+                    </div>
+
+                    <div class="result-row">
+                        <span>Stock</span>
+                        <strong>{{ result.stock_name }}</strong>
+                    </div>
+
+                    <div class="result-row">
+                        <span>Price Per Share</span>
+                        <strong>₹{{ result.price }}</strong>
+                    </div>
+
+                    <div class="result-row">
+                        <span>Quantity</span>
+                        <strong>{{ result.quantity }}</strong>
+                    </div>
+
+                    <div class="total-row">
+                        <span>Total Investment</span>
+                        <strong>₹{{ result.total }}</strong>
+                    </div>
+
+                </div>
+
+                {% endif %}
+
+            </div>
+
+
+            <!-- Available Stocks -->
+
+            <div class="card stocks-card">
+
+                <div class="stocks-heading">
+
+                    <div>
+                        <h2>Available Stocks</h2>
+                        <p>Current sample prices</p>
+                    </div>
+
+                    <span class="badge">
+                        {{ stocks|length }} Stocks
+                    </span>
+
+                </div>
+
+
+                <div class="stock-list">
+
+                    {% for name, price in stocks.items %}
+
+                    <div class="stock-item">
+
+                        <div class="stock-name">
+
+                            <div class="stock-avatar">
+                                {{ name|first|upper }}
+                            </div>
+
+                            <div>
+                                <strong>{{ name|upper }}</strong>
+                                <small>Indian Equity</small>
+                            </div>
+
+                        </div>
+
+                        <div class="stock-price">
+                            ₹{{ price }}
+                        </div>
+
+                    </div>
+
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="formula-card">
+
+            <div class="formula-icon">
+                Σ
+            </div>
+
+            <div>
+                <strong>Investment Formula</strong>
+
+                <p>
+                    Total Investment = Stock Price × Quantity
+                </p>
+            </div>
+
+        </div>
+
+
+        <footer>
+            Stock Portfolio Tracker • Django Project
+        </footer>
+
+    </div>
+
+
+    <script src="{% static 'portfolio/js/script.js' %}"></script>
+
+</body>
+
+</html>

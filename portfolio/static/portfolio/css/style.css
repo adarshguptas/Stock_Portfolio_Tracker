@@ -1,0 +1,392 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f7fb;
+    color: #172033;
+    min-height: 100vh;
+}
+
+
+.container {
+    width: 92%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 50px 0 30px;
+}
+
+
+/* Header */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 35px;
+}
+
+
+.small-title {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #667085;
+    margin-bottom: 8px;
+}
+
+
+.header h1 {
+    font-size: 38px;
+    margin-bottom: 8px;
+}
+
+
+.subtitle {
+    color: #667085;
+    font-size: 16px;
+}
+
+
+.stock-icon {
+    width: 70px;
+    height: 70px;
+    background: #ffffff;
+    border: 1px solid #e4e7ec;
+    border-radius: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+}
+
+
+/* Main */
+
+.main-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+
+.card {
+    background: #ffffff;
+    border: 1px solid #e4e7ec;
+    border-radius: 18px;
+    padding: 28px;
+    box-shadow: 0 8px 25px rgba(16, 24, 40, 0.05);
+}
+
+
+.card h2 {
+    font-size: 22px;
+    margin-bottom: 7px;
+}
+
+
+.description {
+    color: #667085;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+
+/* Form */
+
+label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    margin-top: 18px;
+}
+
+
+input {
+    width: 100%;
+    padding: 14px 15px;
+    border: 1px solid #d0d5dd;
+    border-radius: 10px;
+    font-size: 15px;
+    outline: none;
+    transition: 0.2s;
+}
+
+
+input:focus {
+    border-color: #667085;
+    box-shadow: 0 0 0 3px rgba(102, 112, 133, 0.1);
+}
+
+
+button {
+    width: 100%;
+    margin-top: 24px;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    background: #172033;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+
+button:hover {
+    background: #2d3748;
+    transform: translateY(-1px);
+}
+
+
+/* Error */
+
+.error-box {
+    margin-top: 18px;
+    padding: 13px 15px;
+    border-radius: 10px;
+    background: #fff1f2;
+    border: 1px solid #fecdd3;
+    color: #be123c;
+    font-size: 14px;
+}
+
+
+/* Result */
+
+.result-box {
+    margin-top: 25px;
+    padding: 20px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+}
+
+
+.result-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+
+.result-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 14px;
+}
+
+
+.result-row span {
+    color: #667085;
+}
+
+
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 14px;
+    font-size: 18px;
+}
+
+
+.total-row strong {
+    font-size: 22px;
+}
+
+
+/* Stocks */
+
+.stocks-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+
+.stocks-heading p {
+    color: #667085;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+
+.badge {
+    background: #f2f4f7;
+    color: #344054;
+    padding: 7px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+.stock-list {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.stock-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 13px 0;
+    border-bottom: 1px solid #eaecf0;
+}
+
+
+.stock-item:last-child {
+    border-bottom: none;
+}
+
+
+.stock-name {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+
+.stock-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: #eef2f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+
+.stock-name strong {
+    display: block;
+    font-size: 14px;
+}
+
+
+.stock-name small {
+    display: block;
+    color: #98a2b3;
+    font-size: 11px;
+    margin-top: 3px;
+}
+
+
+.stock-price {
+    font-weight: 700;
+    font-size: 15px;
+}
+
+
+/* Formula */
+
+.formula-card {
+    margin-top: 24px;
+    background: #ffffff;
+    border: 1px solid #e4e7ec;
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+
+.formula-icon {
+    width: 45px;
+    height: 45px;
+    background: #f2f4f7;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+
+.formula-card strong {
+    font-size: 14px;
+}
+
+
+.formula-card p {
+    color: #667085;
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+
+/* Footer */
+
+footer {
+    text-align: center;
+    color: #98a2b3;
+    font-size: 12px;
+    margin-top: 30px;
+}
+
+
+/* Responsive */
+
+@media (max-width: 800px) {
+
+    .container {
+        width: 90%;
+        padding-top: 30px;
+    }
+
+
+    .header h1 {
+        font-size: 28px;
+    }
+
+
+    .main-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .stock-icon {
+        width: 55px;
+        height: 55px;
+        font-size: 25px;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .header {
+        align-items: flex-start;
+    }
+
+
+    .header h1 {
+        font-size: 24px;
+    }
+
+
+    .subtitle {
+        font-size: 13px;
+    }
+
+
+    .card {
+        padding: 20px;
+    }
+
+}
